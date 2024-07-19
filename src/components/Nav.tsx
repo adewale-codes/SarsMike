@@ -4,13 +4,17 @@ import ScrollLink from "./ScrollLink";
 
 interface NavProps {
   homeRef: MutableRefObject<HTMLDivElement | null>;
-  productRef: MutableRefObject<HTMLDivElement | null>;
   aboutRef: MutableRefObject<HTMLDivElement | null>;
   contactRef: MutableRefObject<HTMLDivElement | null>;
   blogRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-const Nav: React.FC<NavProps> = ({ homeRef, productRef, aboutRef, contactRef, blogRef }) => {
+const Nav: React.FC<NavProps> = ({
+  homeRef,
+  aboutRef,
+  contactRef,
+  blogRef,
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const pathname = location.pathname;
@@ -31,15 +35,20 @@ const Nav: React.FC<NavProps> = ({ homeRef, productRef, aboutRef, contactRef, bl
     if (location.state?.target) {
       const targetPath = location.state.target;
       const targetRef =
-        targetPath === '/home' ? homeRef :
-        targetPath === '/about' ? aboutRef :
-        targetPath === '/contact' ? contactRef :
-        targetPath === '/blog' ? blogRef : null;
+        targetPath === "/home"
+          ? homeRef
+          : targetPath === "/about"
+          ? aboutRef
+          : targetPath === "/contact"
+          ? contactRef
+          : targetPath === "/blog"
+          ? blogRef
+          : null;
 
       if (targetRef?.current) {
         window.scrollTo({
           top: targetRef.current.offsetTop,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
       }
       navigate(location.pathname, { replace: true, state: {} });
@@ -53,19 +62,34 @@ const Nav: React.FC<NavProps> = ({ homeRef, productRef, aboutRef, contactRef, bl
           <p className="text-white font-bold text-xl">SARSMIKE</p>
         </ScrollLink>
         <div className="justify-self-start lg:pl-16 hidden lg:flex items-center justify-center gap-2 md:gap-8">
-          <button onClick={() => handleScroll(homeRef, "/home")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(homeRef, "/home")}
+            className="text-white font-extralight"
+          >
             Home
           </button>
-          <button onClick={() => navigate('/products')} className="text-white font-extralight">
+          <button
+            onClick={() => navigate("/products")}
+            className="text-white font-extralight"
+          >
             Products
           </button>
-          <button onClick={() => handleScroll(aboutRef, "/about")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(aboutRef, "/about")}
+            className="text-white font-extralight"
+          >
             About
           </button>
-          <button onClick={() => handleScroll(contactRef, "/contact")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(contactRef, "/contact")}
+            className="text-white font-extralight"
+          >
             Contact
           </button>
-          <button onClick={() => handleScroll(blogRef, "/blog")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(blogRef, "/blog")}
+            className="text-white font-extralight"
+          >
             Blog
           </button>
         </div>
@@ -91,19 +115,34 @@ const Nav: React.FC<NavProps> = ({ homeRef, productRef, aboutRef, contactRef, bl
         } lg:relative lg:translate-x-0 lg:justify-self-start lg:pl-32 lg:flex lg:items-center lg:justify-center lg:gap-2 lg:md:gap-8 lg:bg-transparent`}
       >
         <div className="flex flex-col space-y-5 ml-5">
-          <button onClick={() => handleScroll(homeRef, "/home")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(homeRef, "/home")}
+            className="text-white font-extralight"
+          >
             Home
           </button>
-          <button onClick={() => navigate('/products')} className="text-white font-extralight">
+          <button
+            onClick={() => navigate("/products")}
+            className="text-white font-extralight"
+          >
             Products
           </button>
-          <button onClick={() => handleScroll(aboutRef, "/about")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(aboutRef, "/about")}
+            className="text-white font-extralight"
+          >
             About
           </button>
-          <button onClick={() => handleScroll(contactRef, "/contact")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(contactRef, "/contact")}
+            className="text-white font-extralight"
+          >
             Contact
           </button>
-          <button onClick={() => handleScroll(blogRef, "/blog")} className="text-white font-extralight">
+          <button
+            onClick={() => handleScroll(blogRef, "/blog")}
+            className="text-white font-extralight"
+          >
             Blog
           </button>
         </div>

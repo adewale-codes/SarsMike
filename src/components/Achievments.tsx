@@ -1,19 +1,5 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import AnimatedNumbers from "react-animated-numbers";
-
-interface AnimatedNumbersContainerProps {
-  children: React.ReactNode;
-  configs: (configIndex: number) => {
-    mass: number;
-    friction: number;
-    tensions: number;
-  };
-}
-
-const AnimatedNumbersContainer: React.FC<AnimatedNumbersContainerProps> = ({
-  children,
-  configs,
-}) => <div>{children}</div>;
 
 const achievementsList = [
   {
@@ -50,20 +36,12 @@ const Achievements = () => {
               <h2 className="text-white text-4xl font-bold flex flex-row">
                 {achievement.prefix}
                 <Suspense fallback={<div>Loading...</div>}>
-                  <AnimatedNumbersContainer
-                    configs={(configIndex: number) => ({
-                      mass: 1,
-                      friction: 100,
-                      tensions: 140 * (configIndex + 1),
-                    })}
-                  >
-                    <AnimatedNumbers
-                      includeComma
-                      animateToNumber={parseInt(achievement.value, 10)}
-                      locale="en-US"
-                      className="text-white text-4xl font-bold"
-                    />
-                  </AnimatedNumbersContainer>
+                  <AnimatedNumbers
+                    includeComma
+                    animateToNumber={parseInt(achievement.value, 10)}
+                    locale="en-US"
+                    className="text-white text-4xl font-bold"
+                  />
                 </Suspense>
                 {achievement.postfix}
               </h2>

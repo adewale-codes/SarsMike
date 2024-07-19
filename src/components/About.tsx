@@ -61,7 +61,7 @@ const TAB_DATA: TabData[] = [
 
 const About = forwardRef<HTMLDivElement>((_, ref) => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const handleTabChange = (id: string) => {
     startTransition(() => {
