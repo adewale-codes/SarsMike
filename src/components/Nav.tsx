@@ -72,7 +72,7 @@ const Nav: React.FC<NavProps> = ({
             onClick={() => navigate("/products")}
             className="text-white font-extralight"
           >
-            Products
+            Courses
           </button>
           <button
             onClick={() => handleScroll(aboutRef, "/about")}
@@ -125,7 +125,7 @@ const Nav: React.FC<NavProps> = ({
             onClick={() => navigate("/products")}
             className="text-white font-extralight"
           >
-            Products
+            Courses
           </button>
           <button
             onClick={() => handleScroll(aboutRef, "/about")}
